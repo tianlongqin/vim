@@ -5,7 +5,6 @@
 4.F2打开和关闭tagslist，函数列表框。
 5.F4自动生成tags，需要系统安装了ctags。F4生成的tags，可以对类或结构体的成员函数和变量进行自动补全。
 6.ctrl+w 进行tagslist和输入框进行切换，只需要一个w键的点击。
-7.如果想要
 二、配置vim
 1.需要先安装vim才行。yum install vim 或者 apt install vim。
 2.cp vimrc ～/.vimrc
