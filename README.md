@@ -18,3 +18,8 @@
 * 2.cd 内核源码目录，如果要在根目录使用ctags生成tags，那么tags会很大，在我们的源文件中使用函数跳转和补全就会很卡。一般在include/linux/目录下生成tags。
 * 3.vi ~/.vimrc 查找set tags=tags;，在其下一行添加set tags+=/usr/include/tags。添加内核的tags和应用tags相同。
 * 4.注意----------------tags会根据set tags=tags;后面添加的tags先后顺序进行函数补全和查找。
+# 五、添加cscope支持
+* 1.系统需要安装cscope，可以使用sudo apt install -y cscope 或者 sudo yum install -y cscope进行安装，也可以下载源码编译安装。
+* 2.安装cscope后，在项目根目录，打开任意文件，点击F9，会自动生成cscope数据库文件。目前只会扫描*.h,*.c,*.cc文件。如果需要添加其他类型文件，请在vimrc搜索F9，在后面按给定格式自动添加。
+* 3.vim打开任意文件都可以进行cscope数据库的自动加载。
+* 4.常用cs命令进行了两套快捷键映射，凭喜好选择，详情查看vimrc中cscope配置。
