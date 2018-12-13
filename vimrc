@@ -133,7 +133,7 @@ if has("cscope")
 	set nocscopeverbose
 	set cspc=3
 	if filereadable("cscope.out")
-"		cs add cscope.out
+		cs add cscope.out
 	else
 		let cscope_file=findfile("cscope.out", ".;")
 		let cscope_pre=matchstr(cscope_file, ".*/")
