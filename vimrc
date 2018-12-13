@@ -123,3 +123,47 @@ inoremap <expr> <CR>       pumvisible()?"\<C-Y>":"\<CR>"
 inoremap <expr> <C-K>      pumvisible()?"\<C-P>":"\<C-K>"
 inoremap <expr> <C-J>      pumvisible()?"\<C-N>":"\<C-J>" 
 inoremap <expr> <C-U>      pumvisible()?"\<C-E>":"\<C-U>"
+"cscope
+nmap <silent> <F9> :!find `pwd` -name "*.h" -o -name "*.c" -o -name "*.cc" > cscope.files && cscope -bkq -i cscope.files <CR>
+if has("cscope")
+	set csprg=/usr/bin/cscope
+	set csto=0
+	set cst
+	set csverb
+	set cspc=3
+	if filereadable("cscope.out")
+"		cs add cscope.out
+	else
+		let cscope_file=findfile("cscope.out", ".;")
+		let cscope_pre=matchstr(cscope_file, ".*/")
+		if !empty(cscope_file) && filereadable(cscope_file)
+			exe "cs add" cscope_file cscope_pre
+		endif
+	endif
+endif
+"查找函数、宏、枚举等定义的位置，类似ctags所提供的功能
+nmap 1 :cs find g <C-R>=expand("<cword>")<CR><CR>
+"查找调用本函数的函数 
+nmap 2 :cs find c <C-R>=expand("<cword>")<CR><CR>
+"查找C语言符号，即查找函数名、宏、枚举值等出现的地方
+nmap 3 :cs find s <C-R>=expand("<cword>")<CR><CR>
+"查找本函数调用的函数
+nmap 4 :cs find d <C-R>=expand("<cword>")<CR><CR>
+"查找指定的字符串 
+nmap 5 :cs find t <C-R>=expand("<cword>")<CR><CR>
+"查找egrep模式，相当于egrep功能，但查找速度快多了 
+nmap 6 :cs find e <C-R>=expand("<cword>")<CR><CR>
+" 查找#include这个文件的文件（们）
+nmap 7 :cs find i % <CR><CR>
+"查找并打开文件，类似vim的find功能
+nmap 8 :cs find f 
+
+"ctrl + space同时点击，之后松开快速点击，g，s等按键
+nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>i :cs find i % <CR><CR>
+nmap <C-@>f :cs find f 
