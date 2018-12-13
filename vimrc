@@ -130,6 +130,7 @@ if has("cscope")
 	set csto=0
 	set cst
 	set csverb
+	set nocscopeverbose
 	set cspc=3
 	if filereadable("cscope.out")
 "		cs add cscope.out
