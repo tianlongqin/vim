@@ -20,7 +20,7 @@ snippet Inc
 # #ifndef ... #define ... #endif
 snippet Def
 	#ifndef $1
-	#define ${1:SYMBOL} ${2:value}
+	#define ${1:SYMBOL}
 	#endif${3}
 snippet def
 	#define
@@ -128,19 +128,22 @@ snippet tde
 # unfortunately version this isn't as nice as TextMates's, given the lack of a
 # dynamic `...`
 snippet pr
-	printf("${1:%s}\n"${2});
+	printf("${1:%s}\n"${2});${3}
+snippet prd
+	printf("%s %d\n", __func__, __LINE__);${3}
 snippet pk
 	printk("${1:%s}\n"${2});
 # fprintf (again, this isn't as nice as TextMate's version, but it works)
 snippet fpr
 	fprintf(${1:stderr}, "${2:%s}\n"${3});${4}
+#memory
+snippet mcp
+	memcpy(${1:dest}, ${2:src}, ${3:size});${4}
+snippet mcmp
+	memcmp(${1:s1}, ${2:s2}, ${3:size});${4}
+snippet mset
+	memset(${1:src}, ${2:0}, ${3:size});${4}
 # This is kind of convenient
-snippet ,
-	(${1})${2}
-snippet .
-	[${1}]${2}
-snippet .
-	{${1}}${2}
 snippet sz
 	sizeof(${1:})
 snippet s
