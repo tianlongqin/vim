@@ -170,3 +170,5 @@ nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
 nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <C-@>i :cs find i % <CR><CR>
 nmap <C-@>f :cs find f 
+
+nmap m :w <CR>
