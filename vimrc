@@ -94,7 +94,7 @@ let g:tagbar_sort = 0                                         "设置标签不�
 autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 
 "设置tags  
-nmap <silent> <F4> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ ./* .<CR>
+nmap <silent> <F4> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ ./* <CR>
 set autochdir 
 set tags=tags;  
 set tags+=~/.vim/tags/kernel_include/tags
