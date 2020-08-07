@@ -172,3 +172,4 @@ nmap <C-@>i :cs find i % <CR><CR>
 nmap <C-@>f :cs find f 
 
 nmap m :w <CR>
+nmap q :wq <CR>
